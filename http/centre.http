@@ -1,0 +1,55 @@
+POST http://localhost:3000/centres
+Content-Type: application/json
+
+{
+    "name": "The Edge Rock Climbing Centre",
+    "address": "9/10 Hudson Ave",
+    "suburb": "Castle Hill",
+    "postCode": "2154",
+    "state": "NSW",
+    "webSite": "https://www.edgerockclimbing.com.au/",
+    "emailAddress": "info@edgerockclimbing.com.au"
+}
+
+
+###
+POST https://log2au.herokuapp.com/centres
+Content-Type: application/json
+
+{
+    "name": "The Edge Rock Climbing Centre",
+    "address": "9/10 Hudson Ave",
+    "suburb": "Castle Hill",
+    "postCode": "2154",
+    "state": "NSW",
+    "webSite": "https://www.edgerockclimbing.com.au/",
+    "emailAddress": "info@edgerockclimbing.com.au"
+}
+
+
+###
+POST https://log2au.herokuapp.com/centres
+Content-Type: application/json
+
+{
+    "name": "Sydney Indoor Climbing Gym St Peters",
+    "address": "4C/1-7 Unwins Bridge Rd",
+    "suburb": "St Peters",
+    "postCode": "2044",
+    "state": "NSW",
+    "webSite": "http://www.indoorclimbing.com.au/",
+    "emailAddress": "sicg2@hotmail.com"
+}
+
+###
+GET http://localhost:3000/centres
+
+###
+GET http://localhost:3000/centres/625005e38a6ac51faed53248
+
+###
+DELETE http://localhost:3000/centres/625023b957b6d2edd6501c52
+
+###
+GET https://log2au.herokuapp.com/centres/62500ada28eb0842055d6ed9
+

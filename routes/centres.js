@@ -17,6 +17,7 @@ router.get("/:id", getCentre, (req, res) => {
   res.json(res.centre);
 });
 
+
 // Create one
 router.post("/", async (req, res) => {
   const centre = new Centre({
@@ -36,6 +37,17 @@ router.post("/", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+// Delete one
+router.delete("/:id", getCentre, async (req, res) => {
+    try {
+        const {name} = res.centre
+        await res.centre.remove()
+        res.json({ message: `Centre '${name}' is deleted`})
+    } catch (err) {
+        res.status(500).json({ message: err.message})
+    }
+})
 
 // middleware
 async function getCentre(req, res, next) {

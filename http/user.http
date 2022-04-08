@@ -1,0 +1,33 @@
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "email": "zhongdai.au@gmail.com",
+  "firstName": "Zhong",
+  "lastName": "Dai",
+  "gender": "Male"
+}
+
+
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "email": "zhongdai.au@gmail.com",
+  "firstName": "Zhong",
+  "lastName": "Dai",
+  "gender": "Male"
+}
+
+###
+GET http://localhost:3000/users/62502210941f97cd66f08641
+
+###
+GET http://localhost:3000/users
+
+###
+DELETE http://localhost:3000/users/62502210941f97cd66f08641
+
+###
+GET https://log2au.herokuapp.com/users/62500ada28eb0842055d6ed9

@@ -19,6 +19,9 @@ app.use(express.json());
 const centreRouter = require("./routes/centres");
 app.use("/centres", centreRouter);
 
+const userRouter = require("./routes/users");
+app.use("/users", userRouter);
+
 app.get("/", (req, res) => {
   res.send("Tracking your climbing made easy");
 });
