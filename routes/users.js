@@ -4,8 +4,14 @@ const User = require("../models/user");
 
 // Get all
 router.get("/", async (req, res) => {
+  let queryOption = {}
+  if (req.query.email) {
+    queryOption = {
+      email: req.query.email
+    }
+  }
   try {
-    const users = await User.find();
+    const users = await User.find(queryOption);
     res.json(users);
   } catch (err) {
     res.status(500).json({ message: err.message });

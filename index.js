@@ -23,7 +23,8 @@ const userRouter = require("./routes/users");
 app.use("/users", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("Tracking your climbing made easy");
+  const {name} = req.query
+  res.send(name);
 });
 
 app.listen(process.env.PORT || 3000);

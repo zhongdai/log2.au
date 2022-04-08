@@ -4,8 +4,14 @@ const Centre = require("../models/centre");
 
 // Get all
 router.get("/", async (req, res) => {
+  let queryOption = {};
+  if (req.query.postCode) {
+    queryOption = {
+      postCode: req.query.postCode,
+    };
+  }
   try {
-    const centres = await Centre.find();
+    const centres = await Centre.find(queryOption);
     res.json(centres);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -16,7 +22,6 @@ router.get("/", async (req, res) => {
 router.get("/:id", getCentre, (req, res) => {
   res.json(res.centre);
 });
-
 
 // Create one
 router.post("/", async (req, res) => {
@@ -40,14 +45,14 @@ router.post("/", async (req, res) => {
 
 // Delete one
 router.delete("/:id", getCentre, async (req, res) => {
-    try {
-        const {name} = res.centre
-        await res.centre.remove()
-        res.json({ message: `Centre '${name}' is deleted`})
-    } catch (err) {
-        res.status(500).json({ message: err.message})
-    }
-})
+  try {
+    const { name } = res.centre;
+    await res.centre.remove();
+    res.json({ message: `Centre '${name}' is deleted` });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // middleware
 async function getCentre(req, res, next) {
