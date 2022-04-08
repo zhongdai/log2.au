@@ -7,4 +7,4 @@ app.get('/', (req, res) => {
     res.send("Tracking your climbing made easy")
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
