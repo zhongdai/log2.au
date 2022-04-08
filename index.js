@@ -1,10 +1,24 @@
-const express = require("express")
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 
-const app = express()
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+});
 
+const db = mongoose.connection;
 
-app.get('/', (req, res) => {
-    res.send("Tracking your climbing made easy")
-})
+db.on("error", (e) => console.error(e))
+db.once("open", () => console.log("Mongo connected"))
 
-app.listen(process.env.PORT || 3000)
+app.use(express.json())
+
+const centreRouter = require('./routes/centres')
+app.use('/centres', centreRouter)
+
+app.get("/", (req, res) => {
+  res.send("Tracking your climbing made easy");
+});
+
+app.listen(process.env.PORT || 3000);
